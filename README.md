@@ -2,8 +2,8 @@
 
 ## Authors
 
-- Author 1: Kyriakos Chatzidimitriou
-- Author 2: Name Surname
+- Author 1: Σαρασλανίδης Ιωάννης, ΔΔ
+- Author 2: Σιγάλας Ευάγγελος, 
 
 ## Abstract
 
