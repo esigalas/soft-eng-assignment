@@ -8,18 +8,47 @@ Introduction section describing the application and the business requirements.
 
 Define any domain-related keywords used later on.
 
-**Term 1**
+**Sign-up**
 
 Define term 1 ...
 
-**Term 2**
+**Login**
 
 Define term 2 ...
 
-**Term 3**
+**Edit**
 
 Define tErm3 ...
 
-**Term 4**
+**Browsers**
 
 Define tErm4 ...
+
+**Server**
+
+Define
+
+**Delivery**
+
+Define
+
+**Pop-up**
+
+Define
+
+**μηχανή αναζήτησης**
+
+Define
+
+**google**
+
+Define
+
+**καλαθι αγορών**
+
+Define
+
+**αγαπημενα**
+
+Define
+
