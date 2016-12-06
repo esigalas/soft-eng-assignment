@@ -179,7 +179,7 @@
 **Technical difficulty**(3/5): Αυτή τη λειτουργική απαίτηση είναι μέτριας δυσκολίας καθώς θα πρέπει το σύστημα να διατηρεί σε μία βάση δεδομένων τα καταστήματα που επιλέγει ο χρήστης ως αγαπημένα.
 
 #### User story
-[Add Favorite feature/story]()
+[Favorite feature/story]()
 
 ### ΛΑ-17
 Ο χρήστης θα πρέπει να μπορεί να βλέπει τα αγαπημένα του καταστήματα.
@@ -262,16 +262,11 @@
 
 **Technical difficulty**(2/5): Αυτή η λειτουργία δεν είναι ιδιαίτερα δύσκολη γιατί απλά θα εμφανίζει κάποιον μήνυμα στον χρήστη.
 
-#### User story
-
-Create here the related feature/user story based on BDD and the Gherkin syntax (https://github.com/cucumber/cucumber/wiki/Gherkin). Do that by putting a link to the relevant feature file.
-
-
 
 ## Use case diagram
 
 Representation of all users and user stories/use cases
-
+![UML](../images/fast_food_UML.png)
 ## Activity diagrams
 
 Create activity diagrams to portray the flow of basic user process in the system.
