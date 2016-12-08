@@ -154,7 +154,7 @@
 **Technical difficulty**(2/5): Αυτή τη λειτουργική απαίτηση δεν είναι ιδιαίτερα δύσκολη στην υλοποίηση καθώς απλά θα εμφανίζονται στον χρήστη σχόλια που έχουν γίνει απο άλλους χρήστες και η αξιολόγηση τους για κάποιο συγκεκριμένο κατάστημα.
 
 #### User story
-[ feature/story]()
+[SeeEvaluation feature/story](https://github.com/esigalas/soft-eng-assignment/blob/master/requirements/SeeEvaluation.feature)
 
 ### ΛΑ-14
 Ο χρήστης πρέπει να μπορεί να αξιολογεί τα καταστήματα.
