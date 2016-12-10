@@ -166,7 +166,7 @@
 **Technical difficulty**(3/5): Αυτή τη λειτουργική απαίτηση είναι μέτριας δυσκολίας καθώς απλά θα αποθηκεύεται στην βάση δεδομένων για τα καταστήματα η βαθμολογία του χρήστη.σ
 
 #### User story
-[Evaluation feature/story]()
+[Evaluation feature/story](https://github.com/esigalas/soft-eng-assignment/blob/master/requirements/Evaluation.feature)
 
 ### ΛΑ-15
 Ο χρήστης πρέπει να μπορεί να βλέπει τις παραγγελίες που έχει κανει σε κάθε κατάστημα.
@@ -178,7 +178,7 @@
 **Technical difficulty**(3/5): Αυτή τη λειτουργική απαίτηση είναι μέτριας δυσκολίας καθώς θα πρέπει το σύστημα να διατηρεί ένα ιστορικό για τις παραγελίες σε κάθε κατάστημα για όλους τους χρήστες.
 
 #### User story
-[ feature/story]()
+[Orders feature/story](https://github.com/esigalas/soft-eng-assignment/blob/master/requirements/Orders.feature)
 
 ### ΛΑ-16
 Ο χρήστης πρέπει να μπορεί να προσθέσει κατάστημα στα αγαπημένα του.
@@ -190,7 +190,7 @@
 **Technical difficulty**(3/5): Αυτή τη λειτουργική απαίτηση είναι μέτριας δυσκολίας καθώς θα πρέπει το σύστημα να διατηρεί σε μία βάση δεδομένων τα καταστήματα που επιλέγει ο χρήστης ως αγαπημένα.
 
 #### User story
-[Favorite feature/story]()
+[AddToFavorites feature/story](https://github.com/esigalas/soft-eng-assignment/blob/master/requirements/AddToFavorites.feature)
 
 ### ΛΑ-17
 Ο χρήστης θα πρέπει να μπορεί να βλέπει τα αγαπημένα του καταστήματα.
@@ -202,7 +202,7 @@
 **Technical difficulty**(2/5): Αυτή η λειτουργική απαίτηση δεν είναι ιδιαίτερα δύσκολη στην υλοποίηση γιατί η εμφάνιση πληροφορίας στον χρήστη είναι κάτι απλό.
 
 #### User story
-[ feature/story]()
+[SeeFavorites feature/story](https://github.com/esigalas/soft-eng-assignment/blob/master/requirements/SeeFavorites.feature)
 
 ### ΛΑ-18
 Ο χρήστης θα μπορεί να βλέπει τις τελευταίες παραγγελίες του.
