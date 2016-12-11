@@ -272,7 +272,7 @@
 **Technical difficulty**(2/5): Αυτή η λειτουργία δεν έχει κάποια ιδιαίτερη δυσκολία καθώς απλά θα προστίθεται κάποιο κείμενο που έχει γράψει ο χρήστης σε ένα προϊόν.
 
 #### User story
-[ feature/story]()
+[Comment feature/story](https://github.com/esigalas/soft-eng-assignment/blob/master/requirements/Comment.feature)
 
 ### ΛΑ-24
 Ο χρήστης πρέπει να μπορεί να ολοκληρώσει την παραγγελία του.
@@ -284,7 +284,7 @@
 **Technical difficulty**(4/5): Αυτή η λειτουργία πρέπει να είναι αξιόπιστη για τον έλεγχο και την αποστολή της παραγγελίας κάτι το οποίο δεν είναι εύκολο.
 
 #### User story
-[ feature/story]()
+[FinishOrder feature/story](https://github.com/esigalas/soft-eng-assignment/blob/master/requirements/FinishOrder.feature)
 
 ### ΛΑ-25
 Το σύστημα πρέπει να εμφανίζει μήνυμα επιτυχίας/αποτυχίας μετά την ολοκλήρωση της παραγγελίας.
@@ -295,8 +295,6 @@
 
 **Technical difficulty**(2/5): Αυτή η λειτουργία δεν είναι ιδιαίτερα δύσκολη γιατί απλά θα εμφανίζει κάποιον μήνυμα στον χρήστη.
 
-#### User story
-[ feature/story]()
 
 ## Use case diagram
 
