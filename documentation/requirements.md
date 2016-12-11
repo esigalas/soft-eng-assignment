@@ -214,7 +214,7 @@
 **Technical difficulty**(3/5): Αυτή τη λειτουργική απαίτηση είναι μέτριας δυσκολίας καθώς θα πρέπει το σύστημα να διατηρεί σε μία βάση δεδομένων τις τελευταίες παραγγελίες του κάθε χρήστη.
 
 #### User story
-[ feature/story]()
+[LastOrders feature/story](https://github.com/esigalas/soft-eng-assignment/blob/master/requirements/LastOrders.feature)
 
 ### ΛΑ-19
 Ο χρήστης θα πρεπει να ενημερώνεται όταν υπάρχει προσφορά παραγγελίας σε κάποιο από τα καταστήματα.
@@ -226,7 +226,7 @@
 **Technical difficulty**(3/5): Αυτή η λειτουργία είναι μέτριας δυσκολίας καθώς το να ενημερώνεται το σύστημα κάθε μέρα για τις προσφορές των καταστημάτων δεν είναι τόσο απλό.
 
 #### User story
-[ feature/story]()
+[Offers feature/story](https://github.com/esigalas/soft-eng-assignment/blob/master/requirements/Offers.feature)
 
 ### ΛΑ-20
 Ο χρήστης θα πρέπει να έχει ένα καλάθι αγορών.
@@ -237,8 +237,6 @@
 
 **Technical difficulty**(3/5): Αυτή η λειτουργία είναι μέτριας δυσκολίας καθώς θα πρέπει να υπάρχει μία δομή δεδομένων που θα της προσθέτονται οι επιλογές του χρήστη.
 
-#### User story
-[ feature/story]()
 
 ### ΛΑ-21
 Ο χρήστης πρέπει να μπορεί προσθέτει αντικείμενα στο καλάθι.
@@ -250,7 +248,7 @@
 **Technical difficulty**(3/5): Αυτή η λειτουργία είναι μέτριας δυσκολίας καθώς απλα θα γίνεται μία προσθήκη στην δομή δεδομένων που αναφέρθηκε στη ΛΑ-20.
 
 #### User story
-[ feature/story]()
+[AddToKart feature/story](https://github.com/esigalas/soft-eng-assignment/blob/master/requirements/AddToKart.Feature)
 
 ### ΛΑ-22
 Ο χρήστης πρέπει να μπορεί να αφαιρεί αντικείμενα απο το καλάθι.
@@ -262,7 +260,7 @@
 **Technical difficulty**(3/5): Αυτή η λειτουργία είναι μέτριας δυσκολίας καθώς απλα θα γίνεται μία αφαίρεση απο τη δομή δεδομένων που αναφέρθηκε στη ΛΑ-20.
 
 #### User story
-[ feature/story]()
+[RemoveFromKart feature/story](https://github.com/esigalas/soft-eng-assignment/blob/master/requirements/RemoveFromKart.feature)
 
 ### ΛΑ-23
 Ο χρήστης πρέπει να μπορεί προσθέτει σχόλιο σε κάθε προϊόν.
