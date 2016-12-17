@@ -300,23 +300,26 @@
 ## Use case diagram
 
 Representation of all users and user stories/use cases
-![UML](../images/fast_food_UML.png)
+![UML](../images/.png)
 ## Activity diagrams
 
 ####Activity Diagram Αρχικής Σελίδας
-![Main Page Ativity Diagram](../images/Main_page_AD.png)
+![Main Page Ativity Diagram](../images/AD_main_page.png)
 
 ####Activity Diagram Βασικής Σελίδας
-![Basi Interface](../images/Basic_interface_AD.png)
+![Basi Interface](../images/AD_basic_interface.png)
 
 ####Activity Diagram Παραγγελίας
-![Order Interface](../images/Order_AD.png)
+![Order Interface](../images/AD_order1.png)
+
+![Order Interface](../images/AD_order3.png)
+
+![Order Interface](../images/AD_order2.png)
 
 ####Activity Diagram Σελίδας Λογαριασμού Χρήστη
-![USer Profile](../images/User_profile_AD.png)
+![USer Profile](../images/AD_user_profile.png)
 
-####Activity Diagram Σελίδας Καταστήματος
-![Store](../images/Store_page_AD.png)
+
 
 ## Mockups and Storyboards
 
