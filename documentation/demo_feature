@@ -1,9 +1,0 @@
-Feature: Add a hotel to Saved hotels
-  I want to add a hotel that interestes me to my hotels database
-
-Scenario: Add a hotel
-  Given I am on the HotelsInGreece home page
-  When I search for hotels 
-  And I follow “Add new hotel”
-  Then I should be on the Add a New Movie popup
-And I should see that new hotel on the list to the right of the screen
