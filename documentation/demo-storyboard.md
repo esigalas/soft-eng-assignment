@@ -1,24 +1,29 @@
 # Storyboard 
 
-*Σενάρια Χρήσης και ιστορίες Χρηστών*
+##Login Page
+![Login Page](../images/mockup_start_page.png)
 
-**ΣΧΙΧ-1** 
+##Signup Page
+![Signup Page](../images/mockup_start_page1.png)
 
-__Feature: Εγγραφή του χρήστη στο σύστημα__    
-  Ως νέος χρήστης   
-  Έτσι ώστε να μπορώ να χρησιμοποιώ την υπηρεσία  
-  Θέλω να δημιουργήσω ένα λογαριασμό με τα στοιχεία μου.
+##Βασική Σελίδα
+![Βασική Σελίδα](../images/mockup_main_page1.png)
+![Βασική Σελίδα](../images/mockup_main_page2.png)
 
-__Scenario: Εγγραφή χρήστη__  
-  Δεδομένου ότι είμαι στην αρχική σελίδα   
-  Όταν ακολουθώ το "εγγραφή νέου χρήστη"   
-  Τότε θα πρέπει να είμαι στην σελίδα της εγγραφής νέου χρήστη   
-  Όταν συμπληρώνω το όνομα χρήστη , τον κωδικό, το επώνυμο, την διεύθυνση, το τηλέφωνο μου και το email μου.   
-  Και πατάω "συνέχεια"   
-  Τότε θα πρέπει να είναι στην σελίδα ότι η εγγραφή ολοκληρώθηκε με επιτυχία και ένα e-mail επιβεβαίωσης έχει αποσταλεί στο     e-mail μου.
-  
-**ΣΧΙΧ-2**   
+##Σελίδα Λογαριασμού Χρήστη
+![Logariasmos](../images/mockup_profile1.png)
+![Logariasmos](../images/mockup_profile2.png)
+![Logariasmos](../images/mockup_profile3.png)
+![Logariasmos](../images/mockup_profile4.png)
+![Logariasmos](../images/mockup_profile5.png)
 
-__Feature: __    
-  
-__Scenario: __  
+##Σελίδα Παραγγελίας
+![Order Page](../images/mockup_order_page1.png)
+![Order Page](../images/mockup_order_page2.png)
+![Order Page](../images/mockup_order_page3.png)
+![Order Page](../images/mockup_order_page4.png)
+![Order Page](../images/mockup_order_page5.png)
+![Order Page](../images/mockup_order_page6.png)
+![Order Page](../images/mockup_order_page7.png)
+![Order Page](../images/mockup_order_page8.png)
+![Order Page](../images/mockup_order_page9.png)
