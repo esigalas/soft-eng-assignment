@@ -300,7 +300,9 @@
 ## Use case diagram
 
 Representation of all users and user stories/use cases
-![UML](../images/.png)
+![UML](../images/UseCaseDiagram1.jpg)
+![UML](../images/UseCaseDiagram2.jpg)
+![UML](../images/UseCaseDiagram3.jpg)
 ## Activity diagrams
 
 ####Activity Diagram Αρχικής Σελίδας
@@ -323,7 +325,8 @@ Representation of all users and user stories/use cases
 
 ## Mockups and Storyboards
 
-Put the link to the relevant storyboard.md files that display how one goes from one mockup to another.
+[StoryBoard](https://github.com/esigalas/soft-eng-assignment/blob/master/documentation/demo-storyboard.md)
+
 
 ## Μη Λειτουργικές απαιτήσεις
 
