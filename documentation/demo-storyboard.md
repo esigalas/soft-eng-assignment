@@ -1,9 +1,7 @@
 # Storyboard 
 
-##Login Page
+##Αρχική Σελίδα
 ![Login Page](../images/mockup_start_page.png)
-
-##Signup Page
 ![Signup Page](../images/mockup_start_page1.png)
 
 ##Βασική Σελίδα
