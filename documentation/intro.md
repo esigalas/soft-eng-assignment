@@ -1,6 +1,6 @@
-# Introduction
+# Εισαγωγή
 
-## Scope
+## Σκοπός
 
 Introduction section describing the application and the business requirements.
 
@@ -13,7 +13,7 @@ Introduction section describing the application and the business requirements.
 Από την μεριά τους οι πελάτες έχουν την δυνατότητα να επιλέξουν από μια πληθώρα καταστημάτων γρήγορα και εύκολα με το πάτημα ενός κουμπιού, και να διαμμορφώσουν την άποψη τους για το κάθε κατάστημα με βάση την αξιολόγηση και τα σχόλια άλλων χρηστών. Μπορούν να δουν τους χρόνους εξυπηρέτησης του κάθε εστιατορίου, την ελάχιστη χρέωση τους καθώς και μια πληθώρα άλλων επιλογών έτσι ώστε να ολοκληρώνεται η κάθε παραγγελία με ένα αίσθημα πληρότητας και ικανοποίησης.
 
 
-## Glossary
+## Λεξιλόγιο
 
 Define any domain-related keywords used later on.
 
