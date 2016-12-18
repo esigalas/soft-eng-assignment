@@ -23,5 +23,7 @@
 ![Order Page](../images/mockup_order_page5.png)
 ![Order Page](../images/mockup_order_page6.png)
 ![Order Page](../images/mockup_order_page7.png)
+
+##Σελίδα Ολοκλήρωσης Παραγγελίας
 ![Order Page](../images/mockup_order_page8.png)
 ![Order Page](../images/mockup_order_page9.png)
