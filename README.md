@@ -17,6 +17,6 @@
 
 ## Πίνακας Περιεχομένων
 
- 1. [Εισαγωγή](https://github.com/esigalas/soft-eng-assignment/blob/master/documentation/intro.md)
+1. [Εισαγωγή](https://github.com/esigalas/soft-eng-assignment/blob/master/documentation/intro.md)
 2. [Απαιτήσεις Χρηστών](https://github.com/esigalas/soft-eng-assignment/blob/master/documentation/requirements.md)
 3. [StoryBoard](https://github.com/esigalas/soft-eng-assignment/blob/master/documentation/demo-storyboard.md)
