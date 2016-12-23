@@ -5,6 +5,7 @@
 Στην Αρχική Σελίδα ο χρήστης θα μπορεί να συνδεθεί με την υπηρεσία μας ή να κάνει την εγγραφή του εάν είναι νέος χρήστης. Επίσης θα έχει την δυνατότητα επιλογής ανάμεσα στην αγγλική και την ελληνική γλώσσα.
 
 ![Login Page](../images/mockup_start_page.png)
+![Select Language](../images/mockup_start_page2.png)
 ![Signup Page](../images/mockup_start_page1.png)
 
 ##Βασική Σελίδα
