@@ -319,7 +319,7 @@ Representation of all users and user stories/use cases
 
 ## Mockups and Storyboards
 
-[StoryBoard](https://github.com/esigalas/soft-eng-assignment/blob/master/documentation/demo-storyboard.md)
+[StoryBoard](https://github.com/esigalas/soft-eng-assignment/blob/master/documentation/storyboard.md)
 
 
 ## Μη Λειτουργικές απαιτήσεις
