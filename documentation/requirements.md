@@ -251,7 +251,7 @@
 **Technical difficulty**(3/5): Αυτή η λειτουργία είναι μέτριας δυσκολίας καθώς απλά θα γίνεται μία προσθήκη στην δομή δεδομένων που αναφέρθηκε στη ΛΑ-20.
 
 #### User story
-[AddToKart feature/story](https://github.com/esigalas/soft-eng-assignment/blob/master/requirements/AddToKart.Feature)
+[AddToKart feature/story](https://github.com/esigalas/soft-eng-assignment/blob/master/requirements/AddToKart.feature)
 
 ### ΛΑ-22
 Ο χρήστης πρέπει να μπορεί να αφαιρεί αντικείμενα από το καλάθι.
