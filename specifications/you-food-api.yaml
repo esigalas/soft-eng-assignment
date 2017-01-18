@@ -1,86 +1,114 @@
-   swagger: '2.0'
+ # Step 1: I define the version of swagger (2.0) one of the three
+swagger: '2.0'
    
-   info:  
-      description: "The documentation for the you-food api"
-      version: "1.0"
-      title: "You-Food Api Documentation",
-      termsOfService: "urn:tos",
-      contact:   
-         name: "You-Food Support",
-         url: "http://www.you-food.gr/support",
-         email: "support@you-food.gr"
+info:  
+  description: "The documentation for the you-food api"
+  version: "1.0"
+  title: "You-Food Api Documentation",
+  termsOfService: "urn:tos",
+  contact:   
+    name: "You-Food Support",
+    url: "http://www.you-food.gr/support",
+    email: "support@you-food.gr"
       
-      license:   
-         name: "Apache 2.0",
-         url: "http://www.apache.org/licenses/LICENSE-2.0"
+  license:   
+    name: "Apache 2.0",
+    url: "http://www.apache.org/licenses/LICENSE-2.0"
       
    
-   host: "you-food.gr"
-   basePath: "/api"
+  host: "you-food.gr"
+  basePath: "/api"
    
-   definitions:
-      customer: 
-         type: 'object'
-         required: 
-            - name
-            - username
-            - password
-         properties:
-            id: 
-               type: integer
-               format: int64
-               description: 
-            username:
-               type: string
-               description:
-            password: 
-               type: string
-               description: 
-            loginStatus:
-               type: boolean
-               description: 
-            name: 
-               type: string
-               description:
-            surname:
-               type: string
-               description:
-            email:
-               type: string
-               description:
-            telephone:
-               type: integer
-               description:
-            address:
-               type: array
-               description: 
-               items:
-                  $ref: definitions/address 
-         description:
-      newCustomer:
-         type: 'object'
-         required: 
-            - name
-            - username
-            - password
-         properties: 
-            username:
-               type: string
-               description:
-            password: 
-               type: string
-               description:  
-            name: 
-               type: string
-               description:
-            surname:
-               type: string
-               description:
-         description:
-
-      address:
-
-
+  definitions:
+    customer: 
+      type: 'object'
+      required: 
+          - name
+          - username
+          - password
+      properties:
+        id: 
+          type: integer
+          format: int64
+          description: 
+        username:
+          type: string
+          description:
+        password: 
+          type: string
+          description: 
+        loginStatus:
+          type: boolean
+          description: 
+        name: 
+          type: string
+          description:
+        surname:
+          type: string
+          description:
+        email:
+          type: string
+          description:
+        telephone:
+          type: integer
+          description:
+        address:
+          type: array
+          description: 
+          items:
+            $ref: definitions/address 
+        description:
+    newCustomer:
+      type: 'object'
+      required: 
+        - name
+        - username
+        - password
+      properties: 
+        username:
+          type: string
+          description:
+        password: 
+          type: string
+          description:  
+        name: 
+          type: string
+          description:
+        surname:
+          type: string
+          description:
+        description:
+    address:
+      type: 'object'
+      required:
+        - login
+      properties:
+        id:
+          type: integer
+          format: int64
+          description:
+        adress field:
+          type: string
+          description:
+    cart:
+      type: 'object'
+      required:
+    order:
+      type: 'object'
+      required:
+    store:
+      type: 'object'
+      required:
+    storeInfo:
+      type: 'object'
+      required:
+    foodCategory:
+      type: 'object'
+      required:
+    food:
+      type: 'object'
+      required:
+      
    paths: 
       /customers:
          post: 
@@ -209,6 +237,4 @@
                403:   
                   description: Forbidden
                404:  
-                  description: Not Found
-
-
+description: Not Found
