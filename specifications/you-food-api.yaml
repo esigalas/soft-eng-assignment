@@ -19,7 +19,7 @@ info:
   host: "you-food.gr"
   basePath: "/api"
    
-  definitions:
+ definitions:
     customer: 
       type: 'object'
       required: 
@@ -201,6 +201,7 @@ info:
                   in: query
                   required: false
                   type: string
+
             respones:
                200:   
                   description: OK
@@ -237,4 +238,4 @@ info:
                403:   
                   description: Forbidden
                404:  
-description: Not Found
+                  description: Not Found

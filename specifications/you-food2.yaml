@@ -1,0 +1,177 @@
+# Step 1: I define the version of swagger (2.0) one of the three
+# required fields of the swagger object:
+# http://swagger.io/specification/#swagger-object-14
+swagger: '2.0'
+
+# Step 2: I define the Info object which holds the metadata of this document.
+# http://swagger.io/specification/#infoObject
+info:
+  description: "The documentation for the you-food api"
+  version: "0.0.1"
+  title: You-Food Api Documentation
+  termsOfService: "urn:tos"
+  contact:
+    name: "You Food Support"
+    url: "http://www.you-food.gr/support"
+    email: "support@you-food.gr"
+
+host: "you-food.gr"
+basePath: "/api"
+
+# Step 3: I may define also what the RESTful API produces in the response
+# or consumes in the request. I insert a '-' because it is an array 
+# (check how a yaml is formatted: http://docs.ansible.com/ansible/YAMLSyntax.html)
+consumes: 
+  - application/json
+produces:
+  - application/json
+  
+# Step 4: Next we define our data model. What entities we have, what properties
+# the entities have, what types are the properties and which fields are required.
+# http://swagger.io/specification/#definitionsObject
+# Each one is a Schema Object:
+# http://swagger.io/specification/#schemaObject
+definitions:
+ 
+  user:
+    type: object
+    required:
+      - id
+      - password
+    properties:
+      id:
+        type: integer
+        format: int64
+      password:
+        type: string
+        
+  customer:
+    type: object
+    required:
+      - id
+      - name
+      - username
+      - password
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+      username:
+        type: string
+      password:
+        type: string
+      loginStatus:
+        type: boolean
+      surname:
+        type: string
+      email:
+        type: string
+      telephone:
+        type: integer
+      address:
+        type: array
+        items:
+          $ref: '#/definitions/address' 
+      order:
+        type: array
+        items:
+          $ref: '#/definitions/order' 
+  address:
+    type: object
+    required:
+        - id
+    properties:
+      id:
+        type: integer
+        format: int64
+      adress field:
+          type: string
+  order:
+    type: object
+    required:
+        - id
+    properties:
+      id:
+        type: integer
+        format: int64
+      cart:
+        type: array
+        items:
+          $ref: '#/definitions/cart'
+  cart:
+    type: object
+    required:
+      - id
+    properties:
+      id:
+        type: integer
+        format: int64
+      cost:
+        type: number
+        format: float
+      order_product:
+        type: array
+        items:
+          $ref: '#/definitions/order_product'
+          
+  order_product:
+    type: object
+    required:
+      - id
+    properties:
+      id:
+        type: integer
+        format: int64
+      comment:
+        type: string
+        
+  store:
+    type: object
+    required:
+      - id
+      - name
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+        
+# Step 5: Then I declare the paths. 
+# http://swagger.io/specification/#paths-object-29
+# Each path is a path item object
+# http://swagger.io/specification/#pathItemObject
+# and in our case it has the HTTP verb that is accepted
+# a description of the operation 
+# (or more fileds like in here http://swagger.io/specification/#operationObject)
+# and responses http://swagger.io/specification/#responsesObject
+# the responses on their side shoudl have the return status codes and inside a
+# response object: http://swagger.io/specification/#responseObject
+# In our case most of the times we have a reference to a definition.
+# Last but not least the parameters can be defined in the path, in the body or
+# in the query
+# http://swagger.io/specification/#parameterObject
+# In this example you can find examples of all the three cases.
+paths:
+  /customers:
+    get:
+      description: Gets all the customers
+      parameters:
+        - name: _sort
+          in: query
+          required: false
+          type: string
+        - name: _order
+          in: query
+          required: false
+          type: string
+      responses:
+        200:
+          description: Customers succesfully retrieved
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/customer'
+    
