@@ -1,0 +1,660 @@
+# Step 1: I define the version of swagger (2.0) one of the three
+# required fields of the swagger object:
+# http://swagger.io/specification/#swagger-object-14
+swagger: '2.0'
+
+# Step 2: I define the Info object which holds the metadata of this document.
+# http://swagger.io/specification/#infoObject
+info:
+  description: "The documentation for the you-food api"
+  version: "0.0.1"
+  title: You-Food Api Documentation
+  termsOfService: "urn:tos"
+  contact:
+    name: "You Food Support"
+    url: "http://www.you-food.gr/support"
+    email: "support@you-food.gr"
+
+host: "you-food.gr"
+basePath: "/api"
+
+# Step 3: I may define also what the RESTful API produces in the response
+# or consumes in the request. I insert a '-' because it is an array 
+# (check how a yaml is formatted: http://docs.ansible.com/ansible/YAMLSyntax.html)
+consumes: 
+  - application/json
+produces:
+  - application/json
+  
+# Step 4: Next we define our data model. What entities we have, what properties
+# the entities have, what types are the properties and which fields are required.
+# http://swagger.io/specification/#definitionsObject
+# Each one is a Schema Object:
+# http://swagger.io/specification/#schemaObject
+definitions:
+ 
+  user:
+    type: object
+    required:
+      - id
+      - password
+    properties:
+      id:
+        type: integer
+        format: int64
+      password:
+        type: string
+        
+  customer:
+    type: object
+    required:
+      - id
+      - name
+      - username
+      - password
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+      username:
+        type: string
+      password:
+        type: string
+      loginStatus:
+        type: boolean
+      surname:
+        type: string
+      email:
+        type: string
+      telephone:
+        type: integer
+      address:
+        type: array
+        items:
+          $ref: '#/definitions/address' 
+      order:
+        type: object
+        items:
+          $ref: '#/definitions/order' 
+      store_evaluation:
+        type: array
+        items:
+          $ref: '#/definitions/evaluation'
+      favorites:
+        type: array
+        items:
+          $ref: '#/definitions/favorites'
+  
+  newCustomer:
+    type: object
+    required:
+      - name
+      - username
+      - password
+    properties:
+      name:
+        type: string
+      username:
+        type: string
+      password:
+        type: string
+      loginStatus:
+        type: boolean
+      surname:
+        type: string
+      email:
+        type: string
+      telephone:
+        type: integer
+      address:
+        type: array
+        items:
+          $ref: '#/definitions/address' 
+      order:
+        type: object
+        items:
+          $ref: '#/definitions/order' 
+      store_evaluation:
+        type: array
+        items:
+          $ref: '#/definitions/evaluation'
+      favorites:
+        type: array
+        items:
+          $ref: '#/definitions/favorites'
+          
+  address:
+    type: object
+    required:
+        - id
+    properties:
+      id:
+        type: integer
+        format: int64
+      adress field:
+          type: string
+          
+  order:
+    type: object
+    required:
+        - id
+    properties:
+      id:
+        type: integer
+        format: int64
+      cart:
+        type: object
+        items:
+          $ref: '#/definitions/cart'
+          
+  cart:
+    type: object
+    required:
+      - id
+    properties:
+      id:
+        type: integer
+        format: int64
+      cost:
+        type: number
+        format: float
+      order_product:
+        type: array
+        items:
+          $ref: '#/definitions/order_product'
+          
+  order_product:
+    type: object
+    required:
+      - id
+    properties:
+      id:
+        type: integer
+        format: int64
+      comment:
+        type: string
+      food:
+        type: object
+        items:
+          $ref: '#/definitions/food'
+  store:
+    type: object
+    required:
+      - id
+      - name
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+      store_info:
+        type: array
+        items:
+          $ref: '#/definitions/store_info'
+  
+  simpleStore:
+    type: object
+    required:
+      - name
+    properties:
+      name:
+        type: string
+      store_info:
+        type: array
+        items:
+          $ref: '#/definitions/store_info'       
+  
+  store_info:
+    type: object
+    required:
+      - id
+    properties:
+      id:
+        type: integer
+        format: int64
+      store_hours:
+        type: string
+      store_location:
+        type: string
+      store_address:
+        type: string
+      store_evaluation:
+        type: array
+        items:
+          $ref: '#/definitions/evaluation'
+          
+  food_category:
+    type: object
+    required:
+      - id
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+
+  food:
+    type: object
+    required:
+      - id
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+      cost:
+        type: number
+        format: float
+  
+  evaluation:
+    type: object
+    required:
+      - id
+    properties:
+      id:
+        type: integer
+        format: int64
+      text:
+        type: string
+      stars:
+        type: number
+        format: float
+        
+  favorites:
+    type: object
+    required:
+      - id
+    properties:
+      id:
+        type: integer
+        format: int64
+      store_name:
+        type: array
+        items:
+          $ref: '#/definitions/store'
+      
+# Step 5: Then I declare the paths. 
+# http://swagger.io/specification/#paths-object-29
+# Each path is a path item object
+# http://swagger.io/specification/#pathItemObject
+# and in our case it has the HTTP verb that is accepted
+# a description of the operation 
+# (or more fileds like in here http://swagger.io/specification/#operationObject)
+# and responses http://swagger.io/specification/#responsesObject
+# the responses on their side shoudl have the return status codes and inside a
+# response object: http://swagger.io/specification/#responseObject
+# In our case most of the times we have a reference to a definition.
+# Last but not least the parameters can be defined in the path, in the body or
+# in the query
+# http://swagger.io/specification/#parameterObject
+# In this example you can find examples of all the three cases.
+paths:
+  /customer:
+    post: 
+      description: Create a new customer
+      parameters:
+      - name: newCustomerDetails
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/newCustomer'
+      responses:
+        200:   
+          description: OK
+          schema:  
+            $ref: '#/definitions/customer'
+        201:  
+          description: Created
+        401:   
+          description: Unauthorized
+        403:   
+          description: Forbidden
+        404:  
+          description: Not Found
+    put: 
+      description: Edit an existing customer
+      parameters:
+      - name: editCustomerDetails
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/newCustomer'
+      responses:
+        200:   
+          description: OK
+          schema:  
+            $ref: '#/definitions/newCustomer'
+        201:  
+          description: Edited
+        401:   
+          description: Unauthorized
+        403:   
+          description: Forbidden
+        404:  
+          description: Not Found
+  /customer/address/{ids}:
+    get: 
+      description: Get list of addresses that belong to the customer
+      parameters:
+      - name: ids
+        in: path
+        required: true
+        type: integer
+        format: int64
+        description: The ID of the address
+      responses:
+        200:   
+          description: OK
+          schema:  
+            $ref: '#/definitions/address'
+        201:  
+          description: Fetched
+        401:   
+          description: Unauthorized
+        403:   
+          description: Forbidden
+        404:  
+          description: Not Found      
+    post: 
+      description: Add a new address to the list of the customer addresses
+      parameters:
+      - name: ids
+        in: path
+        required: true
+        type: integer
+        format: int64
+        description: The ID of the address
+      - name: newAdress
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/address'
+      responses:
+        200:   
+          description: OK
+          schema:  
+            $ref: '#/definitions/address'
+        201:  
+          description: Added
+        401:   
+          description: Unauthorized
+        403:   
+          description: Forbidden
+        404:  
+          description: Not Found
+    put: 
+      description: Edit an existing address
+      parameters:
+      - name: ids
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: editAddress
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/address'
+      responses:
+        200:   
+          description: OK
+          schema:  
+            $ref: '#/definitions/address'
+        201:  
+          description: Edited
+        401:   
+          description: Unauthorized
+        403:   
+          description: Forbidden
+        404:  
+          description: Not Found
+    delete: 
+      description: Delete a list of addresses belong to the customer
+      parameters:
+      - name: ids
+        in: path
+        required: true
+        type: integer
+        format: int64
+      responses:
+        200:   
+          description: OK
+          schema:  
+            $ref: '#/definitions/address'
+        201:  
+          description: Deleted
+        401:   
+          description: Unauthorized
+        403:   
+          description: Forbidden
+        404:  
+          description: Not Found      
+  /customer/orders/{ids}:
+    get: 
+      description: Get list of orders that belong to the customer
+      parameters:
+      - name: ids
+        in: path
+        required: true
+        type: integer
+        format: int64
+        description: The ID of the order
+      responses:
+        200:   
+          description: OK
+          schema:  
+            $ref: '#/definitions/order'
+        201:  
+          description: Fetched
+        401:   
+          description: Unauthorized
+        403:   
+          description: Forbidden
+        404:  
+          description: Not Found  
+  /customer/favorites/{ids}:
+    get: 
+      description: Get list of favorites that belong to the customer
+      parameters:
+      - name: ids
+        in: path
+        required: true
+        type: integer
+        format: int64
+        description: The ID of the favorite
+      responses:
+        200:   
+          description: OK
+          schema:  
+            $ref: '#/definitions/favorites'
+        201:  
+          description: Fetched
+        401:   
+          description: Unauthorized
+        403:   
+          description: Forbidden
+        404:  
+          description: Not Found 
+  /stores:
+    get:
+      description: Return all the stores based on the customer actions
+      parameters:
+        - name: sort
+          description: Sort based on the available options (Cost,Time,Evaluation)
+          in: query
+          required: false
+          type: string
+        - name: tags
+          description: Filters that may be applied by the customer (On the left side of the api Main page)
+          in: query
+          required: false
+          type: array
+          items:
+            type: string
+          collectionFormat: multi
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/simpleStore'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+  /stores/{id}:
+    get:
+      description: Get the information for a selected store
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/store'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Foun
+    post:
+      description: Add the evaluation of the customer to the overall evaluation of the store
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int64
+        - name: evaluation_score
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/evaluation'
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/evaluation'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Foun
+  /cart:
+    get:
+      description: Get the information for the cart of the customer
+      parameters:
+        - name: cart
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/cart'
+      responses:
+        200:   
+          description: OK
+          schema:  
+            $ref: '#/definitions/cart'
+        201:  
+          description: Created
+        401:   
+          description: Unauthorized
+        403:   
+          description: Forbidden
+        404:  
+          description: Not Found
+  /cart/order_product/{id}:  
+    put: 
+      description: add a new product in the cart of the order
+      parameters:
+      - name: id
+        description: The ID of the product to be added
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: comment
+        description: Optional choice of adding a comment as string along with the product
+        in: body
+        required: false
+        schema:
+          type: string
+      responses:
+        200:   
+          description: OK
+          schema:  
+            $ref: '#/definitions/order_product'
+        201:  
+          description: Added
+        401:   
+          description: Unauthorized
+        403:   
+          description: Forbidden
+        404:  
+          description: Not Found
+    delete: 
+      description: Delete a product from the cart of the customer
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+        format: int64
+      responses:
+        200:   
+          description: OK
+          schema:  
+            $ref: '#/definitions/order_product'
+        201:  
+          description: Deleted
+        401:   
+          description: Unauthorized
+        403:   
+          description: Forbidden
+        404:  
+          description: Not Found        
+  /order/{id}:
+    post:
+      description: Finish and send the order
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int64
+        - name: orderDetails
+          description: Details of the order
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/order'
+      responses:
+        200:   
+          description: OK
+          schema:  
+            $ref: '#/definitions/order'
+        201:  
+          description: Created
+        401:   
+          description: Unauthorized
+        403:   
+          description: Forbidden
+        404:  
+          description: Not Found
