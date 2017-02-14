@@ -658,3 +658,128 @@ paths:
           description: Forbidden
         404:  
           description: Not Found
+          
+          
+ -----------ΕΞΤΡΑ PATHS-----------
+ 
+ 
+  /customer/evaluation/{ids}:
+    get: 
+      description: Get list of the evaluations that belong to the customer
+      parameters:
+      - name: ids
+        in: path
+        required: true
+        type: integer
+        format: int64
+        description: The ID of the evaluation
+      responses:
+        200:   
+          description: OK
+          schema:  
+            $ref: '#/definitions/evaluation'
+        201:  
+          description: Fetched
+        401:   
+          description: Unauthorized
+        403:   
+          description: Forbidden
+        404:  
+          description: Not Found 
+
+ /stores/menu{id}:
+    get:
+      description: Get the menu for a selected store
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/menu'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+
+
+  /stores/info/{id}:
+    get:
+      description: Get the information for a selected store
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/info/'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+          
+
+  /stores/evaluation/{id}:
+    get:
+      description: Get the evaluations for a selected store
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/evaluation/'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+
+  /stores/order/{id}:
+    get:
+      description: Get a list of previous orders for a selected store
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/order/'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+
+
+          
