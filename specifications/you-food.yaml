@@ -199,7 +199,10 @@ definitions:
         type: array
         items:
            $ref: '#/definitions/evaluation'
-         
+      orders:
+        type: array
+        items:
+          $ref: '#/definitions/order'
   simpleStore:
     type: object
     required:
