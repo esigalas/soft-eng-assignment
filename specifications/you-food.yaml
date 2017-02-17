@@ -1,10 +1,8 @@
 # Step 1: I define the version of swagger (2.0) one of the three
 # required fields of the swagger object:
-# http://swagger.io/specification/#swagger-object-14
 swagger: '2.0'
 
 # Step 2: I define the Info object which holds the metadata of this document.
-# http://swagger.io/specification/#infoObject
 info:
   description: "The documentation for the you-food api"
   version: "0.0.1"
@@ -20,7 +18,6 @@ basePath: "/api"
 
 # Step 3: I may define also what the RESTful API produces in the response
 # or consumes in the request. I insert a '-' because it is an array 
-# (check how a yaml is formatted: http://docs.ansible.com/ansible/YAMLSyntax.html)
 consumes: 
   - application/json
 produces:
@@ -28,9 +25,7 @@ produces:
   
 # Step 4: Next we define our data model. What entities we have, what properties
 # the entities have, what types are the properties and which fields are required.
-# http://swagger.io/specification/#definitionsObject
 # Each one is a Schema Object:
-# http://swagger.io/specification/#schemaObject
 definitions:
  
   user:
@@ -70,6 +65,7 @@ definitions:
         type: string
       telephone:
         type: integer
+        format: int64
       address:
         type: array
         items:
@@ -106,6 +102,7 @@ definitions:
         type: string
       email:
         type: string
+        format: int64
       telephone:
         type: integer
       address:
@@ -194,7 +191,15 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/store_info'
-  
+      food_categories:
+        type: array
+        items:
+          $ref: '#/definitions/food_category'
+      evaluations:
+        type: array
+        items:
+           $ref: '#/definitions/evaluation'
+         
   simpleStore:
     type: object
     required:
@@ -279,20 +284,7 @@ definitions:
           $ref: '#/definitions/store'
       
 # Step 5: Then I declare the paths. 
-# http://swagger.io/specification/#paths-object-29
-# Each path is a path item object
-# http://swagger.io/specification/#pathItemObject
-# and in our case it has the HTTP verb that is accepted
-# a description of the operation 
-# (or more fileds like in here http://swagger.io/specification/#operationObject)
-# and responses http://swagger.io/specification/#responsesObject
-# the responses on their side shoudl have the return status codes and inside a
-# response object: http://swagger.io/specification/#responseObject
-# In our case most of the times we have a reference to a definition.
-# Last but not least the parameters can be defined in the path, in the body or
-# in the query
-# http://swagger.io/specification/#parameterObject
-# In this example you can find examples of all the three cases.
+
 paths:
   /customer:
     post: 
@@ -337,11 +329,11 @@ paths:
           description: Forbidden
         404:  
           description: Not Found
-  /customer/address/{ids}:
+  /customer/address/{id}:
     get: 
       description: Get list of addresses that belong to the customer
       parameters:
-      - name: ids
+      - name: id
         in: path
         required: true
         type: integer
@@ -350,8 +342,10 @@ paths:
       responses:
         200:   
           description: OK
-          schema:  
-            $ref: '#/definitions/address'
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/address'
         201:  
           description: Fetched
         401:   
@@ -363,7 +357,7 @@ paths:
     post: 
       description: Add a new address to the list of the customer addresses
       parameters:
-      - name: ids
+      - name: id
         in: path
         required: true
         type: integer
@@ -390,7 +384,7 @@ paths:
     put: 
       description: Edit an existing address
       parameters:
-      - name: ids
+      - name: id
         in: path
         required: true
         type: integer
@@ -416,7 +410,7 @@ paths:
     delete: 
       description: Delete a list of addresses belong to the customer
       parameters:
-      - name: ids
+      - name: id
         in: path
         required: true
         type: integer
@@ -434,11 +428,11 @@ paths:
           description: Forbidden
         404:  
           description: Not Found      
-  /customer/orders/{ids}:
+  /customer/orders/{id}:
     get: 
       description: Get list of orders that belong to the customer
       parameters:
-      - name: ids
+      - name: id
         in: path
         required: true
         type: integer
@@ -447,8 +441,10 @@ paths:
       responses:
         200:   
           description: OK
-          schema:  
-            $ref: '#/definitions/order'
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/order'
         201:  
           description: Fetched
         401:   
@@ -457,11 +453,11 @@ paths:
           description: Forbidden
         404:  
           description: Not Found  
-  /customer/favorites/{ids}:
+  /customer/favorites/{id}:
     get: 
       description: Get list of favorites that belong to the customer
       parameters:
-      - name: ids
+      - name: id
         in: path
         required: true
         type: integer
@@ -470,8 +466,35 @@ paths:
       responses:
         200:   
           description: OK
-          schema:  
-            $ref: '#/definitions/favorites'
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/favorites'
+        201:  
+          description: Fetched
+        401:   
+          description: Unauthorized
+        403:   
+          description: Forbidden
+        404:  
+          description: Not Found 
+  /customer/evaluation/{id}:
+    get: 
+      description: Get list of the evaluations that belong to the customer
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+        format: int64
+        description: The ID of the evaluation
+      responses:
+        200:   
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/evaluation'
         201:  
           description: Fetched
         401:   
@@ -504,13 +527,15 @@ paths:
             type: array
             items:
               $ref: '#/definitions/simpleStore'
+        201:  
+          description: Fetched
         401:
           description: Unauthorized
         403:
           description: Forbidden
         404:
           description: Not Found
-  /stores/{id}:
+  /store/{id}:
     get:
       description: Get the information for a selected store
       parameters:
@@ -523,15 +548,15 @@ paths:
         200:
           description: OK
           schema:
-            type: array
-            items:
               $ref: '#/definitions/store'
+        201:  
+          description: Fetched
         401:
           description: Unauthorized
         403:
           description: Forbidden
         404:
-          description: Not Foun
+          description: Not Found
     post:
       description: Add the evaluation of the customer to the overall evaluation of the store
       parameters:
@@ -542,7 +567,7 @@ paths:
           format: int64
         - name: evaluation_score
           in: body
-          required: false
+          required: true
           schema:
             $ref: '#/definitions/evaluation'
       responses:
@@ -558,15 +583,112 @@ paths:
           description: Forbidden
         404:
           description: Not Foun
-  /cart:
+  /stores/category/{id}:
+    get:
+      description: Get a menu category for the current store
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/food_category'
+        201:  
+          description: Fetched
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+  /stores/store_info/{id}:
+    get:
+      description: Get the information for a selected store
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/store_info'
+        201:  
+          description: Fetched
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+  /stores/evaluation/{id}:
+    get:
+      description: Get the evaluations for a selected store
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/evaluation'
+        201:  
+          description: Fetched
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+  /stores/order/{id}:
+    get:
+      description: Get a list of previous orders for a selected store
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/order'
+        201:  
+          description: Fetched
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+  /cart/{id}:
     get:
       description: Get the information for the cart of the customer
       parameters:
-        - name: cart
-          in: body
+        - name: id
+          in: path
           required: true
-          schema:
-            $ref: '#/definitions/cart'
+          type: integer
+          format: int64
+          description: The ID of the Cart
       responses:
         200:   
           description: OK
@@ -658,3 +780,28 @@ paths:
           description: Forbidden
         404:  
           description: Not Found
+    get:
+      description: Message after order completion
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int64
+        - name: comment
+          in: body
+          required: false
+          schema:
+            type: string
+      responses:
+        200:   
+          description: OK
+        201:  
+          description: Fetched
+        401:   
+          description: Unauthorized
+        403:   
+          description: Forbidden
+        404:  
+          description: Not Found
+
