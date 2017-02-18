@@ -27,19 +27,6 @@ produces:
 # the entities have, what types are the properties and which fields are required.
 # Each one is a Schema Object:
 definitions:
- 
-  user:
-    type: object
-    required:
-      - id
-      - password
-    properties:
-      id:
-        type: integer
-        format: int64
-      password:
-        type: string
-        
   customer:
     type: object
     required:
@@ -244,6 +231,10 @@ definitions:
         format: int64
       name:
         type: string
+      food:
+        type: array
+        items:
+          $ref: '#/definitions/food'
 
   food:
     type: object
@@ -258,7 +249,7 @@ definitions:
       cost:
         type: number
         format: float
-  
+      
   evaluation:
     type: object
     required:
@@ -272,7 +263,11 @@ definitions:
       stars:
         type: number
         format: float
-        
+      simple_store:
+        type: array
+        items:
+          $ref: '#/definitions/simpleStore'
+      
   favorites:
     type: object
     required:
@@ -284,7 +279,7 @@ definitions:
       store_name:
         type: array
         items:
-          $ref: '#/definitions/store'
+          $ref: '#/definitions/simpleStore'
       
 # Step 5: Then I declare the paths. 
 
@@ -560,7 +555,7 @@ paths:
           description: Forbidden
         404:
           description: Not Found
-    post:
+    put:
       description: Add the evaluation of the customer to the overall evaluation of the store
       parameters:
         - name: id
@@ -570,22 +565,40 @@ paths:
           format: int64
         - name: evaluation_score
           in: body
-          required: true
+          required: false
           schema:
             $ref: '#/definitions/evaluation'
       responses:
         200:
           description: OK
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/evaluation'
         401:
           description: Unauthorized
         403:
           description: Forbidden
         404:
-          description: Not Foun
+          description: Not Found
+    post:
+      description: Add the store to the favorite list of the customer
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int64
+        - name: favorite_add
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/favorites'
+      responses:
+        200:
+          description: OK
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
   /stores/category/{id}:
     get:
       description: Get a menu category for the current store
@@ -773,8 +786,6 @@ paths:
       responses:
         200:   
           description: OK
-          schema:  
-            $ref: '#/definitions/order'
         201:  
           description: Created
         401:   
