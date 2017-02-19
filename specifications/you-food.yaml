@@ -416,8 +416,6 @@ paths:
       responses:
         200:   
           description: OK
-          schema:  
-            $ref: '#/definitions/address'
         201:  
           description: Deleted
         401:   
@@ -565,12 +563,14 @@ paths:
           format: int64
         - name: evaluation_score
           in: body
-          required: false
+          required: true
           schema:
             $ref: '#/definitions/evaluation'
       responses:
         200:
           description: OK
+        201:  
+          description: Edited
         401:
           description: Unauthorized
         403:
@@ -585,14 +585,11 @@ paths:
           required: true
           type: integer
           format: int64
-        - name: favorite_add
-          in: body
-          required: false
-          schema:
-            $ref: '#/definitions/favorites'
       responses:
         200:
           description: OK
+        201:  
+          description: Created
         401:
           description: Unauthorized
         403:
@@ -758,8 +755,6 @@ paths:
       responses:
         200:   
           description: OK
-          schema:  
-            $ref: '#/definitions/order_product'
         201:  
           description: Deleted
         401:   
@@ -786,32 +781,10 @@ paths:
       responses:
         200:   
           description: OK
-        201:  
-          description: Created
-        401:   
-          description: Unauthorized
-        403:   
-          description: Forbidden
-        404:  
-          description: Not Found
-    get:
-      description: Message after order completion
-      parameters:
-        - name: id
-          in: path
-          required: true
-          type: integer
-          format: int64
-        - name: comment
-          in: body
-          required: false
           schema:
             type: string
-      responses:
-        200:   
-          description: OK
         201:  
-          description: Fetched
+          description: Created
         401:   
           description: Unauthorized
         403:   
